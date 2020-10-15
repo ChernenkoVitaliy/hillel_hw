@@ -43,6 +43,14 @@ public class Comment {
         return author;
     }
 
+    public void setFlagCount(int flagCount) {
+        this.flagCount = flagCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
     public void incrementFlagCount() {
         flagCount++;
     }

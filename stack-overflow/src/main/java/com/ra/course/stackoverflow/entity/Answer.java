@@ -58,8 +58,24 @@ public class Answer {
         return comments;
     }
 
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
+
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
+    public void setFlagCount(int flagCount) {
+        this.flagCount = flagCount;
     }
 
     public void incrementVoteCount() {

@@ -28,6 +28,10 @@ public abstract class Member {
         return badges;
     }
 
+    public void setBadges(Set<Badge> badges) {
+        this.badges = badges;
+    }
+
     public void addBadge(Badge badge) {
         badges.add(badge);
     }
