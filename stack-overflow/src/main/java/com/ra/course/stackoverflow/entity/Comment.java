@@ -5,21 +5,21 @@ import java.util.Objects;
 
 public class Comment {
 
-    private final long id;
+    private Long id;
     private final String text;
     private final LocalDateTime created;
     private int flagCount;
     private int voteCount;
     private final Member author;
 
-    public Comment(long id, String text, Member author) {
+    public Comment(Long id, String text, Member author) {
         this.id = id;
         this.text = text;
         this.author = author;
         created = LocalDateTime.now();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -43,6 +43,10 @@ public class Comment {
         return author;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setFlagCount(int flagCount) {
         this.flagCount = flagCount;
     }
@@ -64,9 +68,9 @@ public class Comment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return id == comment.id &&
-                flagCount == comment.flagCount &&
+        return flagCount == comment.flagCount &&
                 voteCount == comment.voteCount &&
+                id.equals(comment.id) &&
                 text.equals(comment.text) &&
                 created.equals(comment.created) &&
                 author.equals(comment.author);

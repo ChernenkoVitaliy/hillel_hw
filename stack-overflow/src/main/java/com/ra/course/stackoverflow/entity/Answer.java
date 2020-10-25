@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Answer {
 
-    private final long id;
+    private Long id;
     private String answerText;
     private boolean accepted;
     private int voteCount;
@@ -17,7 +17,7 @@ public class Answer {
     private final List<Comment> comments;
     private final List<Photo> photos;
 
-    public Answer(long id, String answerText, Member author) {
+    public Answer(Long id, String answerText, Member author) {
         this.id = id;
         this.answerText = answerText;
         this.author = author;
@@ -26,7 +26,7 @@ public class Answer {
         photos = new ArrayList<>();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -60,6 +60,10 @@ public class Answer {
 
     public List<Photo> getPhotos() {
         return photos;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setAnswerText(String answerText) {
@@ -107,10 +111,10 @@ public class Answer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Answer answer = (Answer) o;
-        return id == answer.id &&
-                accepted == answer.accepted &&
+        return accepted == answer.accepted &&
                 voteCount == answer.voteCount &&
                 flagCount == answer.flagCount &&
+                id.equals(answer.id) &&
                 answerText.equals(answer.answerText) &&
                 created.equals(answer.created) &&
                 author.equals(answer.author);

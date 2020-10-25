@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Account {
 
-    private final long id;
+    private Long id;
     private String password;
     private AccountStatus status;
     private String name;
@@ -14,7 +14,7 @@ public class Account {
     private String phone;
     private int reputation;
 
-    public Account(long id, String password, AccountStatus status, String name, String email, String phone) {
+    public Account(Long id, String password, AccountStatus status, String name, String email, String phone) {
         this.id = id;
         this.password = password;
         this.status = status;
@@ -25,6 +25,10 @@ public class Account {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setPassword(String password) {
@@ -71,7 +75,7 @@ public class Account {
         this.reputation = reputation;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -80,8 +84,8 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return id == account.id &&
-                reputation == account.reputation &&
+        return reputation == account.reputation &&
+                id.equals(account.id) &&
                 password.equals(account.password) &&
                 status == account.status &&
                 name.equals(account.name) &&
