@@ -85,8 +85,6 @@ public class AnswerServiceImplTest {
         assertThat(resultAnswer.getId()).isEqualTo(ID);
     }
 
-    /////////write tests for delete method
-
     @Test
     public void deleteAnswerMethod_ShouldThrowException_WhenMemberIsNull() {
         //then
