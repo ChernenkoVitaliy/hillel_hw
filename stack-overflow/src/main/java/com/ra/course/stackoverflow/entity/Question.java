@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class Question {
 
-    private final long id;
+    private Long id;
     private String title;
     private String description;
     private int viewCount;
@@ -26,7 +26,7 @@ public class Question {
     private Bounty bounty;
 
 
-    public Question(long id, String title, String description, Member author) {
+    public Question(Long id, String title, String description, Member author) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -37,7 +37,7 @@ public class Question {
         tags = new ArrayList<>();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -91,6 +91,10 @@ public class Question {
 
     public Bounty getBounty() {
         return bounty;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
@@ -154,21 +158,19 @@ public class Question {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Question question = (Question) o;
-        return id == question.id &&
-                viewCount == question.viewCount &&
+        return viewCount == question.viewCount &&
                 voteCount == question.voteCount &&
+                id.equals(question.id) &&
                 title.equals(question.title) &&
                 description.equals(question.description) &&
                 created.equals(question.created) &&
                 Objects.equals(updated, question.updated) &&
-                status == question.status &&
-                closingRemark == question.closingRemark &&
                 author.equals(question.author) &&
                 Objects.equals(bounty, question.bounty);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, viewCount, voteCount, created, updated, status, closingRemark, author, bounty);
+        return Objects.hash(id, title, description, viewCount, voteCount, created, updated, author, bounty);
     }
 }

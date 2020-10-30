@@ -3,7 +3,7 @@ package com.ra.course.stackoverflow.entity;
 import java.util.Objects;
 import java.util.Set;
 
-public abstract class Member {
+public class Member {
 
     protected final Account account;
     protected Set<Badge> badges;

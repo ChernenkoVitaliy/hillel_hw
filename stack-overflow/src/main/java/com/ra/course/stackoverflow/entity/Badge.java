@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Badge {
 
-    private final long id;
+    private Long id;
     private final String name;
     private final String description;
 
-    public Badge(long id, String name, String description) {
+    public Badge(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -22,8 +22,12 @@ public class Badge {
         return description;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
@@ -31,7 +35,7 @@ public class Badge {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Badge badge = (Badge) o;
-        return id == badge.id &&
+        return id.equals(badge.id) &&
                 name.equals(badge.name) &&
                 description.equals(badge.description);
     }

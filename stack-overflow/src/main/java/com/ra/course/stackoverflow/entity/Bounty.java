@@ -5,15 +5,15 @@ import java.util.Objects;
 
 public class Bounty {
 
-    private final long id;
+    private Long id;
     private int reputation;
     private LocalDateTime expire;
 
-    public Bounty(long id) {
+    public Bounty(Long id) {
         this.id = id;
     }
 
-    public Bounty(long id, int reputation, LocalDateTime expire) {
+    public Bounty(Long id, int reputation, LocalDateTime expire) {
         this.id = id;
         this.reputation = reputation;
         this.expire = expire;
@@ -39,13 +39,17 @@ public class Bounty {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Bounty bounty = (Bounty) o;
-        return id == bounty.id &&
-                reputation == bounty.reputation &&
+        return reputation == bounty.reputation &&
+                id.equals(bounty.id) &&
                 Objects.equals(expire, bounty.expire);
     }
 
