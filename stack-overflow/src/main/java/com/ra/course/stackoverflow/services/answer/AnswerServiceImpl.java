@@ -7,9 +7,11 @@ import com.ra.course.stackoverflow.entity.enums.QuestionStatus;
 import com.ra.course.stackoverflow.exception.AnswerNotFoundException;
 import com.ra.course.stackoverflow.exception.QuestionNotFoundException;
 import com.ra.course.stackoverflow.exception.QuestionStatusException;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+@Service
 public class AnswerServiceImpl implements AnswerService {
 
     private static final transient String ANSWER_ERROR = "Answer must not be null.";
