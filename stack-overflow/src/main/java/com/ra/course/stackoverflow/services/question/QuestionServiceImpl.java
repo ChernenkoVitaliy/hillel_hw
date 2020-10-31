@@ -7,9 +7,11 @@ import com.ra.course.stackoverflow.entity.Moderator;
 import com.ra.course.stackoverflow.entity.Question;
 import com.ra.course.stackoverflow.entity.enums.QuestionStatus;
 import com.ra.course.stackoverflow.exception.QuestionNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+@Service
 public class QuestionServiceImpl implements QuestionService{
 
     private final transient QuestionDao questionDao;

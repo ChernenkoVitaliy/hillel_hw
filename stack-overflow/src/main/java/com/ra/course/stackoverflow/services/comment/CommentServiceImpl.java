@@ -5,9 +5,11 @@ import com.ra.course.stackoverflow.dao.CommentDao;
 import com.ra.course.stackoverflow.entity.*;
 import com.ra.course.stackoverflow.exception.AnswerNotFoundException;
 import com.ra.course.stackoverflow.exception.CommentNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 
     private static final transient String ANSWER_ERROR = "Answer must not be null.";
