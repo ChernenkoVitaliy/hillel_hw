@@ -46,6 +46,8 @@ wrapper {
 
 project(':stack-overflow') {
     dependencies {
+        compile hibernate.hikari
+        compile 'org.springframework.boot:spring-boot-starter-jooq'
     }
 }
 
@@ -55,6 +57,7 @@ project(':stack-overflow-integration-tests') {
             bootJar.enabled = false
             jar.enabled = true
         }
+        testCompile 'com.h2database:h2'
     }
     bootJar {
         enabled = false

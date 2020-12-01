@@ -33,7 +33,6 @@ public class CommentServiceImplTest {
     @BeforeEach
     public void setUp(){
         when(answerDao.getById(ID)).thenReturn(Optional.of(answer));
-        when(answerDao.getByComment(comment)).thenReturn(answer);
         when(commentDao.getById(ID)).thenReturn(Optional.of(comment));
         when(commentDao.delete(comment)).thenReturn(true);
         commentService = new CommentServiceImpl(commentDao, answerDao);
@@ -146,12 +145,13 @@ public class CommentServiceImplTest {
     private Answer createAnswer(final long id) {
         return new Answer(id,
                 "Some answer text",
-                author);
+                author, 1L);
     }
 
     private Comment createComment(final long id) {
         return new Comment(id,
                 "Some comment text",
+                1L,
                 author);
     }
 }

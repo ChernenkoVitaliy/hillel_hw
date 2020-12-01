@@ -170,6 +170,6 @@ public class AnswerServiceImplTest {
     private Answer createAnswer(final long id) {
         return new Answer(id,
                 "Some answer text",
-                author);
+                author, 1L);
     }
 }

@@ -6,15 +6,17 @@ import java.util.Objects;
 public class Comment {
 
     private Long id;
-    private final String text;
+    private String text;
     private final LocalDateTime created;
     private int flagCount;
     private int voteCount;
+    private final Long answerID;
     private final Member author;
 
-    public Comment(Long id, String text, Member author) {
+    public Comment(Long id, String text, Long answerID, Member author) {
         this.id = id;
         this.text = text;
+        this.answerID = answerID;
         this.author = author;
         created = LocalDateTime.now();
     }
@@ -39,12 +41,20 @@ public class Comment {
         return voteCount;
     }
 
+    public Long getAnswerID() {
+        return answerID;
+    }
+
     public Member getAuthor() {
         return author;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public void setFlagCount(int flagCount) {
