@@ -16,11 +16,13 @@ public class Answer {
     private final Member author;
     private final List<Comment> comments;
     private final List<Photo> photos;
+    private final Long questionID;
 
-    public Answer(Long id, String answerText, Member author) {
+    public Answer(Long id, String answerText, Member author, Long questionID) {
         this.id = id;
         this.answerText = answerText;
         this.author = author;
+        this.questionID = questionID;
         created = LocalDateTime.now();
         comments = new ArrayList<>();
         photos = new ArrayList<>();
@@ -44,6 +46,10 @@ public class Answer {
 
     public int getFlagCount() {
         return flagCount;
+    }
+
+    public Long getQuestionID() {
+        return questionID;
     }
 
     public LocalDateTime getCreated() {

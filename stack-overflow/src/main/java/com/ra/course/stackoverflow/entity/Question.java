@@ -32,9 +32,12 @@ public class Question {
         this.description = description;
         this.author = author;
         created = LocalDateTime.now();
+        updated = LocalDateTime.now();
         answers = new ArrayList<>();
         photos = new ArrayList<>();
         tags = new ArrayList<>();
+        status = QuestionStatus.CREATED;
+        closingRemark = QuestionClosingRemark.NEW;
     }
 
     public Long getId() {

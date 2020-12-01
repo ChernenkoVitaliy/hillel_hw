@@ -53,7 +53,8 @@ public class CommentServiceImpl implements CommentService {
             final var commentFromDB= commentDao.getById(comment.getId())
                     .orElseThrow(() -> new CommentNotFoundException("Can't delete. Comment not found in DB."));
 
-            final var answerFromDb = answerDao.getByComment(comment);
+            final var answerFromDb = answerDao.getById(comment.getAnswerID())
+                    .orElseThrow(() -> new AnswerNotFoundException("Answer not exists in DB."));
             answerFromDb.getComments().remove(comment);
             answerDao.update(answerFromDb);
 
