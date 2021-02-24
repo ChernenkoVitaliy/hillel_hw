@@ -35,7 +35,7 @@ configure(subprojects) { project ->
     }
 
     dependencies {
-        compile 'org.springframework.boot:spring-boot-starter'
+        compile 'org.springframework.boot:spring-boot-starter-web'
         testCompile 'org.springframework.boot:spring-boot-starter-test'
     }
 }
@@ -48,6 +48,8 @@ project(':stack-overflow') {
     dependencies {
         compile hibernate.hikari
         compile 'org.springframework.boot:spring-boot-starter-jooq'
+        compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        compile db.mysql
     }
 }
 
